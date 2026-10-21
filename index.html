@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick and Morty App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Rick and Morty</h1>
+        <p>Search the multiverse, open a portal, or play Trivia!</p>
+
+        <form id="rmForm">
+            <div class="search-group">
+                <input type="text" id="characterInput" placeholder="Character name..." required>
+                <button type="submit" id="searchBtn">Search</button>
+            </div>
+            <div class="action-buttons">
+                <button type="button" id="randomBtn" class="btn-random">🌀 Random Portal</button>
+                <button type="button" id="triviaBtn" class="btn-trivia">🎮 Play Trivia</button>
+            </div>
+        </form>
+
+        <div id="loader" class="hidden">Opening portal...</div>
+        
+        <div id="result" class="grid-container"></div>
+
+        <div class="load-more-container">
+            <button type="button" id="loadMoreBtn" class="hidden">Load more</button>
+        </div>
+        
+        <div id="taxModal" class="modal hidden">
+            <div class="modal-content">
+                <span id="closeModal" class="close-btn">&times;</span>
+                <h2>Interdimensional Tax!</h2>
+                <p>Oooops! Rick says you need to pay 50 Flurbos to use the portal fluid.</p>
+                <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez" class="tax-img">
+            </div>
+        </div>
+
+        <div id="triviaModal" class="modal hidden">
+            <div class="modal-content trivia-content">
+                <span id="closeTrivia" class="close-btn">&times;</span>
+                <h2>Trivia: Alive or Dead?</h2>
+                <div id="triviaLoading" class="hidden">Summoning character...</div>
+                
+                <div id="triviaGame" class="hidden">
+                    <img id="triviaImg" src="" alt="Character" class="trivia-img">
+                    <h3 id="triviaName">Character Name</h3>
+                    <p class="trivia-question">What is their current status?</p>
+                    
+                    <div id="triviaOptions" class="trivia-options">
+                        <button class="guess-btn alive-btn" data-status="Alive">Alive</button>
+                        <button class="guess-btn dead-btn" data-status="Dead">Dead</button>
+                        <button class="guess-btn unknown-btn" data-status="unknown">Unknown</button>
+                    </div>
+
+                    <div id="triviaResult" class="hidden trivia-result">
+                        <h3 id="triviaVerdict"></h3>
+                        <button id="nextTriviaBtn" class="btn-trivia">Next Character</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
